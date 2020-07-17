@@ -14,38 +14,25 @@
 
 
 
-# This function divides input array into 2 arrays(odd and even)
-def divide_array(input_array):
-	even_arr = []
-	odd_arr = []
-	input_array_length = len(input_array)
-	for x in range(input_array_length):
-		if (input_array[x] % 2) == 0 :
-			even_arr.append(input_array[x])
-		else:
-			odd_arr.append(input_array[x])
-	merge_arrays(even_arr, odd_arr)
+class Solution:
+    def sortArrayByParityII(self, A: List[int]) -> List[int]:
+	# divide input array into 2 arrays(even,odd)
+        even_arr = []
+        odd_arr = []
+        input_array_length = len(A)
+        for x in range(input_array_length):
+            if (A[x] % 2) == 0 :
+                even_arr.append(A[x])
+            else:
+                odd_arr.append(A[x])
+        
+	# merge 2 arrays and get the output
+        loop_times = len(even_arr)
+        output_array = []
+        for x in range(0,loop_times):
+            output_array.append(even_arr[x])
+            output_array.append(odd_arr[x])
 
-
-
-# This function merge 2 arrays.
-def merge_arrays(even_arr, odd_arr):
-	loop_times = len(even_arr)
-	output_array = []
-	for x in range(0,loop_times):
-		output_array.append(even_arr[x])
-		output_array.append(odd_arr[x])
-
-	print(output_array)
-	return
-
-
-
-# test case : 
-testB = [13,52,4,15,12,24,96,1,7,17,9,100]
-print(divide_array(testB))
-print("==========================")
-
-# output result: [52, 13, 4, 15, 12, 1, 24, 7, 96, 17, 100, 9]
+        return output_array
 		
 				
